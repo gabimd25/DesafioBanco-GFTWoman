@@ -1,3 +1,5 @@
+import javax.xml.crypto.Data;
+
 public abstract class Conta implements IConta {
 	
 	private static final int AGENCIA_PADRAO = 1;
@@ -7,6 +9,7 @@ public abstract class Conta implements IConta {
 	protected int numero;
 	protected double saldo;
 	protected Cliente cliente;
+    protected Data dataAbertura;
 
 	public Conta(Cliente cliente) {
 		this.agencia = Conta.AGENCIA_PADRAO;
@@ -41,6 +44,10 @@ public abstract class Conta implements IConta {
 	public double getSaldo() {
 		return saldo;
 	}
+
+    public Data getDataAbertura() {
+        return dataAbertura;
+    }
 
 	protected void imprimirInfosComuns() {
 		System.out.println(String.format("Titular: %s", this.cliente.getNome()));
